@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/whatnextjamie/claude-skill-manager/main/schema/skill-package.schema.json",
+  "$schema": "https://raw.githubusercontent.com/whatnextjamie/cskill/main/schema/skill-package.schema.json",
   "name": "stripe-webhook-skills",
   "version": "1.0.1",
   "description": "Expert Stripe webhook debugging and code generation skills for Claude Code",
