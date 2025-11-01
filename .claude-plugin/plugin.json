@@ -15,7 +15,7 @@
     "code-generation"
   ],
   "skills": [
-    "stripe-webhook-debugger",
-    "stripe-webhook-code-generator"
+    "./skills/stripe-webhook-debugger",
+    "./skills/stripe-webhook-code-generator"
   ]
 }
