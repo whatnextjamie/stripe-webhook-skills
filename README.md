@@ -1,23 +1,36 @@
-# Stripe Webhook Skills for Claude
+# Stripe Webhook Skills for Claude Code
 
-The Stripe Webhook Skills package gives Claude expert-level understanding of Stripe’s webhook events and API patterns. Built for the [cskill](https://github.com/whatnextjamie/cskill) ecosystem, it enables developers to extend Claude’s coding capabilities with contextual knowledge for automating and troubleshooting Stripe integrations.
+A Claude Code plugin that gives Claude expert-level understanding of Stripe's webhook events and API patterns. This plugin enables developers to extend Claude's coding capabilities with contextual knowledge for automating and troubleshooting Stripe integrations.
 
 Use it as a foundation for building Stripe-aware Claude workflows, handling payment events, or debugging webhook payloads more intelligently.
 
 ## 🚀 Getting Started
 
-### For Humans:
+### Installation
 
-1. Install [cskill](https://github.com/whatnextjamie/cskill) - the open-source package manager for Claude Code skills
-```bash
-npm install -g cskill
+**Option 1: From a Marketplace (Recommended)**
+
+If this plugin is available in a marketplace you've added:
+
 ```
-2. Install the Stripe webhook skills package 
-```bash
-cskill install @whatnextjamie/stripe-webhook-skills
+/plugin install stripe-webhook-skills@marketplace-name
 ```
-3. Ensure skills are enabled in Claude Code Settings → Capabilities → Skills
-4. That's it! Claude now has expert-level understanding of Stripe’s webhook events.
+
+**Option 2: Direct from GitHub**
+
+```
+/plugin marketplace add whatnextjamie/stripe-webhook-skills
+/plugin install stripe-webhook-skills
+```
+
+**Option 3: Local Installation (for development)**
+
+```
+/plugin marketplace add /path/to/stripe-webhook-skills
+/plugin install stripe-webhook-skills
+```
+
+That's it! Claude now has expert-level understanding of Stripe's webhook events.
 
 ### For AI Assistants:
 
@@ -43,14 +56,14 @@ See the **Instructions for AI** section below for detailed guidance.
 - Guide on best practices and security
 
 **Reference Files:**
-- `stripe-webhook-debugger/SKILL.md` - Main skill definition
-- `stripe-webhook-debugger/references/signature-verification.md` - Signature debugging guide
-- `stripe-webhook-debugger/references/event-types.md` - Event catalog
-- `stripe-webhook-debugger/references/error-codes.md` - Error reference
-- `stripe-webhook-debugger/references/testing.md` - Testing with Stripe CLI
-- `stripe-webhook-debugger/references/configuration.md` - Dashboard setup
-- `stripe-webhook-debugger/references/event-processing.md` - Processing patterns
-- `stripe-webhook-debugger/references/best-practices.md` - Architecture & security
+- `skills/stripe-webhook-debugger/SKILL.md` - Main skill definition
+- `skills/stripe-webhook-debugger/references/signature-verification.md` - Signature debugging guide
+- `skills/stripe-webhook-debugger/references/event-types.md` - Event catalog
+- `skills/stripe-webhook-debugger/references/error-codes.md` - Error reference
+- `skills/stripe-webhook-debugger/references/testing.md` - Testing with Stripe CLI
+- `skills/stripe-webhook-debugger/references/configuration.md` - Dashboard setup
+- `skills/stripe-webhook-debugger/references/event-processing.md` - Processing patterns
+- `skills/stripe-webhook-debugger/references/best-practices.md` - Architecture & security
 
 ### 2. Stripe Webhook Code Generator
 **Purpose:** Production-ready code generation with codebase integration
@@ -63,9 +76,9 @@ See the **Instructions for AI** section below for detailed guidance.
 - Update and refactor existing handlers
 
 **Reference Files:**
-- `stripe-webhook-code-generator/SKILL.md` - Main skill definition
-- `stripe-webhook-code-generator/references/code-templates.md` - Framework templates
-- `stripe-webhook-code-generator/references/testing-patterns.md` - Test generation patterns
+- `skills/stripe-webhook-code-generator/SKILL.md` - Main skill definition
+- `skills/stripe-webhook-code-generator/references/code-templates.md` - Framework templates
+- `skills/stripe-webhook-code-generator/references/testing-patterns.md` - Test generation patterns
 
 ---
 
@@ -79,7 +92,7 @@ See the **Instructions for AI** section below for detailed guidance.
 
 - "My webhook keeps failing with signature errors"
 - "I need to handle Stripe subscriptions in my Next.js app"
-- "What does this event payload mean?" (paste JSON)
+- "What does this event payload mean?"
 - "Generate a webhook handler that integrates with my database"
 - "Why isn't my webhook receiving events?"
 
@@ -188,28 +201,31 @@ Always ensure:
 
 ---
 
-## 🛠️ Installation Options
+## 🛠️ Development & Customization
 
-### Option 1: Via Claude Code (Recommended)
+### Testing Locally
 
-The easiest way if you're using Claude Code:
+To test this plugin during development:
 
-1. Fork and clone this repo
-2. Enable skill-creator in Settings → Capabilities → Skills (in Claude Desktop)
-3. Ask Claude to "Create a new skill" or "Install the Stripe webhook skills"
+1. Clone this repository
+2. Add it as a local marketplace: `/plugin marketplace add /path/to/stripe-webhook-skills`
+3. Install the plugin: `/plugin install stripe-webhook-skills`
+4. Make changes to the skills or references
+5. Reload Claude Code to see updates
 
-### Option 2: Manual Upload to Claude Projects
+### Customizing for Your Team
 
-1. Create or open a Claude Project
-2. Go to Project Knowledge
-3. Upload the skill folders or individual .md files:
-   - `stripe-webhook-debugger/SKILL.md` (+ reference files)
-   - `stripe-webhook-code-generator/SKILL.md` (+ reference files)
+This plugin is designed to be forked and customized:
 
-### Option 3: Use Individual Reference Files
+1. Fork this repository
+2. Modify the skills and reference files to match your team's patterns
+3. Host in a private marketplace for your team
+4. Configure in `.claude/settings.json` for automatic installation
 
-If you only need specific guidance:
-- Upload just the reference files you need (signature-verification.md, event-types.md, etc.)
+### Using Individual Reference Files
+
+If you only need specific guidance without the full plugin:
+- Reference files can be uploaded to Claude Projects individually
 - Great for one-off questions or learning
 
 ---
@@ -218,22 +234,29 @@ If you only need specific guidance:
 
 ```
 stripe-webhook-skills/
-├── stripe-webhook-debugger/
-│   ├── SKILL.md                          # Main skill definition
-│   └── references/
-│       ├── signature-verification.md      # Signature debugging guide
-│       ├── event-types.md                 # Stripe event catalog
-│       ├── error-codes.md                 # Error reference
-│       ├── testing.md                     # Local testing guide
-│       ├── configuration.md               # Dashboard setup
-│       ├── event-processing.md            # Processing patterns
-│       └── best-practices.md              # Security & architecture
+├── .claude-plugin/
+│   └── plugin.json                       # Plugin metadata
 │
-└── stripe-webhook-code-generator/
-    ├── SKILL.md                          # Main skill definition
-    └── references/
-        ├── code-templates.md              # Framework templates
-        └── testing-patterns.md            # Test generation
+├── skills/
+│   ├── stripe-webhook-debugger/
+│   │   ├── SKILL.md                      # Main skill definition
+│   │   └── references/
+│   │       ├── signature-verification.md  # Signature debugging guide
+│   │       ├── event-types.md             # Stripe event catalog
+│   │       ├── error-codes.md             # Error reference
+│   │       ├── testing.md                 # Local testing guide
+│   │       ├── configuration.md           # Dashboard setup
+│   │       ├── event-processing.md        # Processing patterns
+│   │       └── best-practices.md          # Security & architecture
+│   │
+│   └── stripe-webhook-code-generator/
+│       ├── SKILL.md                      # Main skill definition
+│       └── references/
+│           ├── code-templates.md          # Framework templates
+│           └── testing-patterns.md        # Test generation
+│
+├── README.md
+└── LICENSE
 ```
 
 ---
@@ -324,32 +347,6 @@ These skills are designed to be modular and extensible. Contributions are welcom
 
 ---
 
-## 💡 Pro Tips
-
-1. **Test locally first** - Use Stripe CLI for local development
-2. **Test mode is your friend** - Always test thoroughly before production
-3. **Read the references** - They contain detailed patterns and best practices
-4. **Customize liberally** - Adapt templates to match your exact needs
-
----
-
 ## 📝 License
 
 MIT License - Feel free to use, modify, and distribute these skills.
-
----
-
-## 🙏 Acknowledgments
-
-Built for the Claude Code community. Special thanks to:
-- The Stripe team for excellent webhook documentation
-- The Claude Code team for the skills framework
-- Contributors and users who help improve these skills
-
----
-
-**Version:** 1.0
-**Last Updated:** October 2025
-**Compatible With:** Claude 3.5 Sonnet and later
-
-**Made with Claude Code** 🚀

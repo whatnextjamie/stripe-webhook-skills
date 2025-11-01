@@ -1,0 +1,15 @@
+{
+  "name": "stripe-webhook-skills",
+  "version": "1.0.0",
+  "description": "Expert Stripe webhook debugging and code generation skills for Claude Code",
+  "author": "Jamie Thompson",
+  "license": "MIT",
+  "repository": "https://github.com/whatnextjamie/stripe-webhook-skills",
+  "keywords": [
+    "stripe",
+    "webhooks",
+    "payments",
+    "debugging",
+    "code-generation"
+  ]
+}
