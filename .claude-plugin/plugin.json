@@ -15,13 +15,7 @@
     "code-generation"
   ],
   "skills": [
-    {
-      "name": "stripe-webhook-debugger",
-      "description": "Debug Stripe webhook signature errors, analyze event payloads, and troubleshoot integration issues"
-    },
-    {
-      "name": "stripe-webhook-code-generator",
-      "description": "Generate production-ready webhook handlers with database integration, tests, and proper security"
-    }
+    "stripe-webhook-debugger",
+    "stripe-webhook-code-generator"
   ]
 }
