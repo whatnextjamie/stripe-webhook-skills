@@ -1,19 +1,23 @@
 # Stripe Webhook Skills for Claude
 
-Two complementary skills that give Claude expert knowledge for working with Stripe webhooks - one for debugging and understanding, one for code generation.
+The Stripe Webhook Skills package gives Claude expert-level understanding of Stripe’s webhook events and API patterns. Built for the [cskill](https://github.com/whatnextjamie/cskill) ecosystem, it enables developers to extend Claude’s coding capabilities with contextual knowledge for automating and troubleshooting Stripe integrations.
 
----
+Use it as a foundation for building Stripe-aware Claude workflows, handling payment events, or debugging webhook payloads more intelligently.
 
 ## 🚀 Getting Started
 
 ### For Humans:
 
-1. **Fork this repository** to your GitHub account
-2. **Clone it locally** or open in your development environment
-3. **Ensure skill-creator is enabled** in Claude Code Settings → Capabilities → Skills
-4. **Ask Claude:** "Create a new skill" or "Install the Stripe webhook skills"
-
-That's it! Claude will handle the rest.
+1. Install [cskill](https://github.com/whatnextjamie/cskill) - the open-source package manager for Claude Code skills
+```bash
+npm install -g cskill
+```
+2. Install the Stripe webhook skills package 
+```bash
+cskill install @whatnextjamie/stripe-webhook-skills
+```
+3. Ensure skills are enabled in Claude Code Settings → Capabilities → Skills
+4. That's it! Claude now has expert-level understanding of Stripe’s webhook events.
 
 ### For AI Assistants:
 
